@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<title>Sign up</title>
+</head>
+<body>
+<header class="header">
+        <div class="container">
+            <a class="logo" href="/">apocalypse</a>
+            <div class="header-navigation">
+                <a class="navigation" href="/">Home</a>
+                <a class="navigation" href="statistics">Statistics</a>
+                <a class="navigation" href="log-in">Sign in</a>
+                <a class="navigation" href="sign-in">Sign up</a>
+            </div>
+        </div></header>
+
+	<div class="form">
+		<h1>Sign up</h1>
+		<form action="" method="post">
+			{% csrf_token %}
+
+		<div class="field">
+			{{ form.nickname }}
+		</div>
+		<div class="field">
+			{{ form.username }}
+		</div>
+		<div class="field">
+			{{ form.password }}
+		</div>
+			<div class="field">
+			{{ form.repp }}
+		</div>
+		<div class="field">
+			<input type="submit" value="login">
+		</div>
+			</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Statistics</title>
+</head>
+<body>
+<header class="header">
+        <div class="container">
+            <a class="logo" href="/">apocalypse</a>
+            <div class="header-navigation">
+                <a class="navigation" href="/">Home</a>
+                <a class="navigation" href="statistics">Statistics</a>
+                {% if request.user.is_authenticated %}
+                <a class="navigation" href="profile">My profile</a>
+                <a class="navigation" href="log-out">Log out</a>
+                {% else %}
+                <a class="navigation" href="log-in">Sign in</a>
+                <a class="navigation" href="sign-in">Sign up</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <h1 class="stat-header" align="center">Player stats</h1>
+<div class="stats-box">
+        <h1 class="box-names">Daily ladder</h1>
+        <h1 class="box-names">Weekly ladder</h1>
+        <h1 class="box-names">Monthly ladder</h1>
+        <div class="vl"></div>
+        <div class="vl2"></div>
+    </div>
+
+<div class="current-players">
+    <div class="daily">
+        <ol>
+            {% if currentladders.daily|length > 4 %}
+            {% for elem in currentladders.daily %}
+            <li>{{elem}}</li>
+            {% endfor %}
+            {% else %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            {% endif %}
+        </ol>
+    </div>
+    <div class="weekly">
+        <ol>
+            {% if currentladders.weekly|length > 4 %}
+            {% for elem in currentladders.weekly %}
+            <li>{{elem}}</li>
+            {% endfor %}
+            {% else %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            {% endif %}
+        </ol>
+    </div>
+    <div class="monthly">
+        <ol>
+            {% if currentladders.monthly|length > 4 %}
+            {% for elem in currentladders.monthly %}
+            <li>{{elem}}</li>
+            {% endfor %}
+            {% else %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            {% endif %}
+        </ol>
+    </div>
+</div>
+<! -- >
+    <h1 class="stat-header2" align="center">Past ladders</h1>
+<div class="stats-box">
+        <h1 class="box-names">Daily ladder</h1>
+        <h1 class="box-names">Weekly ladder</h1>
+        <h1 class="box-names">Monthly ladder</h1>
+        <div class="vl3"></div>
+        <div class="vl4"></div>
+    </div>
+<div class="current-players">
+    <div class="daily">
+        <ol>
+            {% if pastladders.daily|length > 4 %}
+            {% for elem in pastladders.daily %}
+            <li>{{elem}}</li>
+            {% endfor %}
+            {% else %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            {% endif %}
+        </ol>
+    </div>
+    <div class="weekly">
+        <ol>
+            {% if pastladders.weekly|length > 4 %}
+            {% for elem in pastladders.weekly %}
+            <li>{{elem}}</li>
+            {% endfor %}
+            {% else %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            {% endif %}
+        </ol>
+    </div>
+    <div class="monthly">
+        <ol>
+            {% if pastladders.monthly|length > 4 %}
+            {% for elem in pastladders.monthly %}
+            <li>{{elem}}</li>
+            {% endfor %}
+            {% else %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            {% endif %}
+        </ol>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main2.css' %}">
+    <title>Home</title>
+</head>
+<body>
+<header class="header">
+        <div class="container">
+            <a class="logo" href="/">apocalypse</a>
+            <div class="header-navigation">
+                <a class="navigation" href="/">Home</a>
+                <a class="navigation" href="statistics">Statistics</a>
+                {% if request.user.is_authenticated %}
+                <a class="navigation" href="profile">My profile</a>
+                <a class="navigation" href="log-out">Log out</a>
+                {% else %}
+                <a class="navigation" href="log-in">Sign in</a>
+                <a class="navigation" href="sign-in">Sign up</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </header>
+<div class="body">
+<h1 class="text"></h1>
+<div class="vl5"></div>
+</div>
+<div class="stats-box">
+        <h1 class="box-names">{{nick}}</h1>
+        <h1 class="box-names">Places</h1>
+</div>
+<div class="mystat-box">
+    <div class="mystats">
+
+    {% for key, values in mystats.items %}
+              <h1>{{key}}: {{values}}</h1>
+
+    {% endfor %}
+
+    </div>
+
+
+    <div class="myplaces">
+        {% for key, values in myplaces.items %}
+              <h1>{{key}}: {{values}}</h1>
+
+    {% endfor %}
+    </div>
+</div>
+</body>
+</html>

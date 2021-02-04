@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Home</title>
+</head>
+<body>
+<header class="header">
+        <div class="container">
+            <a class="logo" href="">apocalypse</a>
+            <div class="header-navigation">
+                <a class="navigation" href="">Home</a>
+                <a class="navigation" href="statistics">Statistics</a>
+                {% if request.user.is_authenticated %}
+                <a class="navigation" href="profile">My profile</a>
+                <a class="navigation" href="log-out">Log out</a>
+                {% else %}
+                <a class="navigation" href="log-in">Sign in</a>
+                <a class="navigation" href="sign-in">Sign up</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </header>
+<div class="body">
+<h1 class="text">Apocalypse is an ordinary arcade game that almost everyone has played, in this project you can compete with each other for points
+    to prove that you are the best in this genre of games.</h1>
+
+    <h1 class="download">Download</h1>
+    <h4><a class="downloading" href="static/apocalypse.zip" download="apocalypse">apocalypse 1.0</a></h4>
+
+    <p class="attention">Please note that this is the first version of the game</p>
+
+</div>
+</body>
+</html>
